@@ -3,7 +3,7 @@ type: middleware
 import: github.com/devanoxltd/cloudflarewarp
 iconPath: .assets/icon.png
 
-summary: Get real IP and protocol from Cloudflare Proxy/Tunnel headers
+summary: Get real IP and protocol from Cloudflare Proxy/Tunnel headers middleware for Traefik
 
 testData:
   disableDefault: false
