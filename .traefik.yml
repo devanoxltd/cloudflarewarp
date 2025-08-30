@@ -8,4 +8,4 @@ summary: Get real IP and protocol from Cloudflare Proxy/Tunnel headers
 testData:
   disableDefault: false
   trustip:
-  - 2400:cb00::/32
+    - 2400:cb00::/32
