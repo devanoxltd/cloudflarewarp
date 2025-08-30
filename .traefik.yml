@@ -1,4 +1,4 @@
-displayName: Real IP from Cloudflare Proxy/Tunnel by Devanox Private Limited
+displayName: Cloudflare Proxy/Tunnel Get Real IP by Devanox Private Limited
 type: middleware
 import: github.com/devanoxltd/cloudflarewarp
 iconPath: .assets/icon.png
