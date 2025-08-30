@@ -1,9 +1,4 @@
 # Real IP from Cloudflare Proxy/Tunnel
-[![Code Analysis](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/codeqlAnalysis.yml/badge.svg)](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/codeqlAnalysis.yml)
-[![Codacy Security Scan](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/codacyAnalysis.yml/badge.svg)](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/codacyAnalysis.yml)
-[![Build and Test Source](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/buildAndTest.yml/badge.svg)](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/buildAndTest.yml)
-[![Static Analysis](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/staticAnalysis.yml/badge.svg)](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/staticAnalysis.yml)
-[![Integration Test](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/prodTest.yml/badge.svg)](https://github.com/devanoxltd/cloudflarewarp/actions/workflows/prodTest.yml)
 
 Forked from https://github.com/PseudoResonance/cloudflarewarp
 > Note: Traefik plugin repositories cannot be GitHub forks to show up on the plugin repository, which is why this repo no longer shows as a fork.
