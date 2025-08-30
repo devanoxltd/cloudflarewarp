@@ -1,0 +1,30 @@
+name: Test Production Tag
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+    - "v*"
+
+jobs:
+  prodTest:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: production
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Test With Traefik
+      run: bash ./test/test.sh
+
+    - name: Upload log artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: logs
+        if-no-files-found: error
+        path: ${{ github.workspace }}/test/output/*
+        retention-days: 1

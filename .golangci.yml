@@ -1,0 +1,68 @@
+run:
+  timeout: 3m
+
+linters-settings:
+  govet:
+    enable-all: true
+    disable:
+    - fieldalignment
+  gocyclo:
+    min-complexity: 12
+  goconst:
+    min-len: 5
+    min-occurrences: 4
+  misspell:
+    locale: US
+  funlen:
+    lines: -1
+    statements: 50
+  godox:
+    keywords:
+    - FIXME
+  gofumpt:
+    extra-rules: true
+  depguard:
+    rules:
+      main:
+        files:
+        - $all
+        - "!$test"
+        allow:
+        - $gostd
+        - github.com/devanoxltd/cloudflarewarp
+
+linters:
+  enable-all: true
+  disable:
+  - cyclop # duplicate of gocyclo
+  - bodyclose # Too many false positives: https://github.com/timakin/bodyclose/issues/30
+  - dupl
+  - testpackage
+  - tparallel
+  - paralleltest
+  - nlreturn
+  - wsl
+  - exhaustive
+  - exhaustruct
+  - err113
+  - wrapcheck
+  - noctx
+  - lll
+  - gomnd
+  - forbidigo
+  - varnamelen
+  - gocyclo
+  - nestif
+
+issues:
+  exclude-use-default: false
+  max-same-issues: 0
+  exclude:
+  - ST1000
+  - EXC0011 # https://github.com/golangci/golangci-lint/issues/980
+  exclude-rules:
+  - path: (.+)_test.go
+    linters:
+    - goconst
+    - funlen
+    - godot

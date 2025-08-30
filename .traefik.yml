@@ -1,0 +1,11 @@
+displayName: Real IP from Cloudflare Proxy/Tunnel
+type: middleware
+import: github.com/devanoxltd/cloudflarewarp
+iconPath: .assets/icon.png
+
+summary: Get real IP and protocol from Cloudflare Proxy/Tunnel headers
+
+testData:
+  disableDefault: false
+  trustip:
+  - 2400:cb00::/32

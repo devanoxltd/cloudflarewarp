@@ -1,0 +1,41 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+	"name": "Cloudflarewarp",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		// Path is relative to the devcontainer.json file.
+		"dockerfile": "Dockerfile",
+		"args": {
+			"REMOTE_USER": "${localEnv:USER}",
+			"REMOTE_UID": "${localEnv:REMOTE_UID:1000}",
+			"REMOTE_GID": "${localEnv:REMOTE_GID:1000}"
+		}
+	},
+	"privileged": true,
+	"runArgs": [
+		"--network=host"
+	],
+	"remoteUser": "${localEnv:USER}",
+	"containerEnv": {
+		"ENV": "/etc/profile",
+		"DOCKER_TLS_CERTDIR": "/certs"
+	},
+	"postStartCommand": "sudo /usr/local/bin/dockerd-entrypoint.sh",
+	"mounts": [
+		"source=/home/${localEnv:USER}/.config,target=/home/${localEnv:USER}/.config,type=bind,readonly",
+		"source=cloudflarewarp-devcontainer-history,target=/shellhistory,type=volume"
+	],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.Go",
+				"kennylong.kubernetes-yaml-formatter",
+				"ms-azuretools.vscode-containers",
+				"tamasfe.even-better-toml"
+			]
+		}
+	}
+}

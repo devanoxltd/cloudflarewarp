@@ -1,0 +1,48 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionType:
+        description: 'Version Type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - major
+        - minor
+        - patch
+      versionDescription:
+        description: 'Update Description'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Bump Version
+      env:
+        ENVIRONMENT: ci
+      run: bash ./util/ci_publish.sh ${{ github.event.inputs.versionType }} "${{ github.event.inputs.versionDescription }}"
+
+    - name: Create release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        LATEST_TAG=$(git describe --match "v*" --abbrev=0 --tags HEAD)
+        gh release create "$LATEST_TAG" \
+            --title="$LATEST_TAG" \
+            --generate-notes
