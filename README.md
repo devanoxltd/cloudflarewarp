@@ -42,7 +42,7 @@ experimental:
   plugins:
     cloudflarewarp:
       modulename: github.com/devanoxltd/cloudflarewarp
-      version: v1.4.2
+      version: v1.0.0
 ```
 
 ### Plugin configuration
