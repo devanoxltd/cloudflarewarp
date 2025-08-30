@@ -47,3 +47,4 @@ test/tempconfig/
 coverage.txt
 go
 .dccache
+.DS_Store
